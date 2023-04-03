@@ -1,4 +1,4 @@
-import { PurchaseDB, PurchaseModel } from "../services/types"
+import { PurchaseDB, PurchaseModel } from "../types"
 
 export class Purchase {
     constructor(

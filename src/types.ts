@@ -1,17 +1,32 @@
-export interface tokenPayload {
-    id: string
+export enum Category {
+    uPhone = "uPhone",
+    uPad = "uPad",
+    uMac = "uMac"
+}
+
+export enum Role {
+    ADMIN = "ADMIN",
+    NORMAL = "NORMAL"
+}
+
+export interface TokenPayload {
+    id: string,
+    email: string,
+    role: Role
 }
 
 export interface UsersDB {
     id: string,
     email: string,
-    password: string
+    password: string, 
+    role: Role
 }
 
 export interface UsersModel {
     id: string,
     email: string,
-    password: string
+    password: string,
+    role: Role
 }
 
 export interface PurchaseDB {
@@ -28,23 +43,19 @@ export interface PurchaseModel {
     quantity: number
 }
 
-export enum Category {
-    uPhone = "uPhone",
-    uPad = "uPad",
-    uMac = "uMac"
-}
-
 export interface ProductsDB {
     id: string,
     name: string,
     price: number,
-    category: Category
+    category: Category,
+    image: string
 }
 
 export interface ProductsModel {
     id: string,
     name: string,
     price: number,
-    category: Category
+    category: Category,
+    image: string
 }
 

@@ -1,11 +1,12 @@
-import { UsersDB, UsersModel } from "../services/types"
+import { Role, UsersDB, UsersModel } from "../types"
 
 
 export class Users {
     constructor(
         private id: string,
         private email: string,
-        private password: string
+        private password: string,
+        private role: Role
     ) {}
 
     public getId(): string {
@@ -32,11 +33,20 @@ export class Users {
         this.password = value
     }
 
+    public getRole(): Role {
+        return this.role
+    }
+
+    public setRole(value: Role): void {
+        this.role = value
+    }
+
     public toDBModel(): UsersDB {
         return {
             id: this.id,
             email: this.email,
-            password: this.password
+            password: this.password,
+            role: this.role
         }
     }
 
@@ -44,7 +54,8 @@ export class Users {
         return {
             id: this.id,
             email: this.email,
-            password: this.password
+            password: this.password,
+            role: this.role
         }
     }
 }
