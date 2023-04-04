@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserBusiness } from "../business/UserBusiness";
+import { UserBusiness } from "../business/UsersBusiness";
 import { DeleteUserInputDTO, EditUserInputDTO, GetUsersInputDTO, SignUpInputDTO, SignUpOutputDTO, loginInputDTO, loginOutputDTO } from "../dtos/UsersDTO";
 import { BaseError } from "../errors/BaseError";
 import { GetUsersOutputDTO } from "../dtos/UsersDTO";
@@ -55,7 +55,7 @@ export class UserController {
                 token: req.headers.authorization
             }
 
-            const output = await this.userBusiness.GetUsers(input)
+            const output = await this.userBusiness.getUsers(input)
 
             res.status(200).send(output)
 

@@ -19,4 +19,5 @@ export class PurchaseDatabase extends BaseDatabase {
 
         return result
     }
+
 }

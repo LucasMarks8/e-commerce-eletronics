@@ -2,9 +2,12 @@ import { Category, ProductsModel } from "../types";
 
 export type GetProductsOutputDTO = ProductsModel[]
 
+export interface GetProductsByCategoryInputDTO {
+    category: string
+}
+
 export interface CreateProductsInputDTO {
     token: string | undefined,
-    id: string,
     name: string,
     price: number,
     category: Category,
@@ -12,8 +15,9 @@ export interface CreateProductsInputDTO {
 }
 
 export interface EditProductsInputDTO {
-    idToEdit: String,
+    idToEdit: string,
     token: string | undefined,
+    price: unknown
 }
 
 export interface DeleteProductsInputDTO {
