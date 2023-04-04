@@ -1,10 +1,11 @@
+import { GetProductsByCategoryInputDTO } from "../dtos/ProductsDTO"
 import { Category, ProductsDB } from "../types"
 import { BaseDatabase } from "./BaseDatabase"
 
 export class ProductsDatabase extends BaseDatabase {
     public static TABLE_PRODUCTS = "products"
 
-    public findProductsById = async (idParams: string): Promise<ProductsDB | undefined> => {
+    public findProductsById = async (idParams: string): Promise<ProductsDB> => {
         const result: ProductsDB[] = await BaseDatabase
             .connection(ProductsDatabase.TABLE_PRODUCTS)
             .select()
@@ -13,11 +14,19 @@ export class ProductsDatabase extends BaseDatabase {
         return result[0]
     }
 
-    public findProductsByCategory = async (category: Category): Promise<ProductsDB[] | undefined> => {
+    public findProductsByCategory = async (category: GetProductsByCategoryInputDTO): Promise<ProductsDB[]> => {
         const result: ProductsDB[] = await BaseDatabase
             .connection(ProductsDatabase.TABLE_PRODUCTS)
             .select()
             .where({ category })
+
+        return result
+    }
+
+    public findProducts = async (): Promise<ProductsDB[]> => {
+        const result: ProductsDB[] = await BaseDatabase
+            .connection(ProductsDatabase.TABLE_PRODUCTS)
+            .select()
 
         return result
     }

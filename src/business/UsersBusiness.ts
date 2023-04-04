@@ -114,7 +114,7 @@ export class UserBusiness {
         return output
     }
 
-    public GetUsers = async (input: GetUsersInputDTO): Promise<GetUsersOutputDTO> => {
+    public getUsers = async (input: GetUsersInputDTO): Promise<GetUsersOutputDTO> => {
         const { token } = input
 
         if (token === undefined) {
